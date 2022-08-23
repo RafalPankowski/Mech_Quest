@@ -9,17 +9,16 @@ public class GameManager : MonoBehaviour
 
     public Player player;
     public ParticleSystem explosion;
-    public Text scoreText , livesText , hitpointText;
-    public RectTransform xpBar;
+    public HubManager hub;
 
     public int lives = 3;
     public float respawnTime = 3.0f;
     public float respawnImmuneTime = 3.0f;
     public bool alive = true;
 
-    public int score = 0;
+    public int exp = 0;
+    public int lvl = 1;
     public List<int> xpTable;
-    public int exp;
 
     private void Awake()
     {
@@ -29,29 +28,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<Player>();
-    }
-    private void FixedUpdate()
-    {
-        LivesCounter();
-        HitpointCounter();
-    }
-
-    public void EnemyDestroyed(Mover enemy)
-    {
-        this.explosion.transform.position = enemy.transform.position;
-        this.explosion.Play();
-
-        if(enemy.size < 2.0f)
-        {
-            this.score += 3;
-        } else if (enemy.size > 3.0f)
-        {
-            this.score += 1;
-        } else
-        {
-            this.score += 2;
-        }
-        PointsScored();
     }
 
     public void PlayerDied()
@@ -89,25 +65,8 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         this.lives = 3;
-        this.score = 0;
-
         Invoke(nameof(Respawn), this.respawnTime);
-        PointsScored();
-    }
-
-    private void PointsScored()
-    {
-        this.scoreText.text = score.ToString();
-    }
-
-    private void LivesCounter()
-    {
-        this.livesText.text = "x" + lives.ToString();
-    }
-
-    private void HitpointCounter()
-    {
-        this.hitpointText.text = player.hitpoint.ToString();
+        hub.SetLevel();
     }
 
     public int GetCurrentLevel()

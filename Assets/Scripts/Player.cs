@@ -11,7 +11,7 @@ public class Player : Fighter
     private float _turnDirection;
     public float thrustSpeed = 1.0f, turnSpeed = 1.0f;
 
-    protected float immuneTime = 1.0f;
+    protected float immuneTime = 0.5f;
     protected float lastImmune;
 
     private void Awake()
@@ -21,6 +21,16 @@ public class Player : Fighter
     }
 
     private void Update()
+    {
+        moveController();
+    }
+
+    private void FixedUpdate()
+    {
+        Movement();
+    }
+
+    private void moveController()
     {
         _thrusting = Input.GetKey(KeyCode.W);
         _pull = Input.GetKey(KeyCode.S);
@@ -38,21 +48,25 @@ public class Player : Fighter
             _turnDirection = 0.0f;
         }
     }
-
-    private void FixedUpdate()
+    private void Movement()
     {
         if (_thrusting)
         {
             _rigidbody.AddForce(-this.transform.up * this.thrustSpeed);
             _animator.SetBool("isRuning", true);
         }
-        else { _animator.SetBool("isRuning",false); }
+        else if (_pull)
+        {
+            _rigidbody.AddForce(this.transform.up * this.thrustSpeed);
+            _animator.SetBool("isRuning", true);
+        }
+        else { _animator.SetBool("isRuning", false); }
 
         if (_turnDirection != 0.0f)
         {
             _rigidbody.AddTorque(_turnDirection * this.turnSpeed);
             _animator.SetBool("isRuning", true);
-        }      
+        }
     }
     protected override void ReciveDamage(Damage dmg)
     {
@@ -75,9 +89,9 @@ public class Player : Fighter
     }
 
     public void OnLevelUp()
-    {
-        maxHitpoint++;
-        hitpoint = maxHitpoint;
+    { 
+        this.maxHitpoint++;
+        this.hitpoint = this.maxHitpoint;
     }
     public void SetLevel(int level)
     {

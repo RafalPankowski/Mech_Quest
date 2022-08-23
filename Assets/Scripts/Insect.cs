@@ -26,7 +26,21 @@ public class Insect : Mover
             CreateSplit();
             CreateSplit();
         }
-        GameManager.instance.EnemyDestroyed(this);
+        GameManager.instance.explosion.transform.position = transform.position;
+        GameManager.instance.explosion.Play();
+        if (size > 1.3f)
+        {
+            GameManager.instance.GrantXp(3);
+        }
+        else if (size < 0.8f)
+        {
+            GameManager.instance.GrantXp(1);
+        }
+        else
+        {
+            GameManager.instance.GrantXp(2);
+        }
+        GameManager.instance.hub.SetLevel();
         Destroy(this.gameObject);
     }
 
