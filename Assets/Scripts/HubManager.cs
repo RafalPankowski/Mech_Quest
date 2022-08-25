@@ -7,6 +7,8 @@ public class HubManager : MonoBehaviour
 {
     public Text levelText, livesText, hitpointText;
     public RectTransform xpBar;
+    public GameObject heatBar;
+    public RectTransform heatLevel;
 
     private void FixedUpdate()
     {
@@ -14,7 +16,9 @@ public class HubManager : MonoBehaviour
         HitpointCounter();
         SetLevel();
         xpBarUpdate();
+        HeatLevel();
     }
+
 
     public void xpBarUpdate()
     {
@@ -48,6 +52,23 @@ public class HubManager : MonoBehaviour
     public void SetLevel()
     {
         levelText.text = GameManager.instance.GetCurrentLevel().ToString();
+    }
+
+    public void HeatLevel()
+    {
+        if (GameManager.instance.player.curHeat <= 0)
+        {
+            heatBar.SetActive(false);
+        }
+        else
+        {
+            heatBar.SetActive(true);
+            float maxLevel = GameManager.instance.player.maxHeat;
+            float currLevel = GameManager.instance.player.curHeat;
+
+            float completionRatio = (maxLevel * currLevel)/100;
+            heatLevel.localScale = new Vector3(completionRatio - 3.1f, 1, 1);
+        }
     }
 
 }

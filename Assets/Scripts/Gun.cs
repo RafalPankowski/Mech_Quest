@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public Bullet bulletPrefarb;
     public float fireRate = 0.5f;
+    public float Heat = 4.0f;
     private float lastShoot;
 
     private void Update()
@@ -14,17 +14,24 @@ public class Gun : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            if(Time.time - lastShoot > fireRate)
+            if (GameManager.instance.player.curHeat >= 100)
             {
-                lastShoot = Time.time;
-                Shoot();
+                return;
+            }
+            else
+            { 
+                if (Time.time - lastShoot > fireRate)
+                {
+                    lastShoot = Time.time;
+                    Shoot();
+                }
             }
         }
     }
-    private void Shoot()
+    protected virtual void Shoot()
     {
-        Bullet bullet = Instantiate(this.bulletPrefarb, this.transform.position, this.transform.rotation);
-        bullet.Project(this.transform.up);
+        
+        GameManager.instance.player.HeatUp(Heat);
     }
 
     public void Aim(Vector2 mouse)

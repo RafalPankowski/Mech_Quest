@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
 
             Mover enemy = Instantiate(this.enemyPrefarb, spawnPoint, rotation);
             enemy.size = Random.Range(enemy.minSize, enemy.maxSize);
-            //asteroid.SetTrajectory(rotation * -spawnDirection);
+            enemy.transform.parent = this.transform;
         }
     }
 }

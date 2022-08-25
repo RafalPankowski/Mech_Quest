@@ -20,7 +20,7 @@ TagManager:
   - Boundry
   - IgnoreCollisions
   - Hitbox
-  - 
+  - Grass
   - 
   - 
   - 
@@ -43,4 +43,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Grass
+    uniqueID: 3402788103
     locked: 0

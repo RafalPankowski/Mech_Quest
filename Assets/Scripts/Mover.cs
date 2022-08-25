@@ -9,7 +9,7 @@ public class Mover : Fighter
     protected Vector2 moveDirection;
     protected Animator _animator;
 
-    public float speed = 0.6f;
+    public float speed = 40.0f;
     public float maxLifetime = 30.0f;
 
     public float size = 1.0f;
@@ -39,7 +39,7 @@ public class Mover : Fighter
     {
         if (_playerTarget && GameManager.instance.alive == true)
         {
-            _rigidbody.velocity = new Vector2(moveDirection.x, moveDirection.y) * speed;
+            _rigidbody.velocity = new Vector2(moveDirection.x, moveDirection.y) * speed * Time.deltaTime;
             _animator.SetBool("isRuning", true);
         }
         else

@@ -9,10 +9,14 @@ public class Player : Fighter
     public Bullet bulletPrefarb;
     private bool _thrusting, _pull;
     private float _turnDirection;
-    public float thrustSpeed = 1.0f, turnSpeed = 1.0f;
+    public float thrustSpeed = 50.0f, turnSpeed = 10.0f;
 
     protected float immuneTime = 0.5f;
     protected float lastImmune;
+
+    public float curHeat = 0;
+    public float maxHeat = 100;
+    public float coolRate = 3;
 
     private void Awake()
     {
@@ -28,6 +32,7 @@ public class Player : Fighter
     private void FixedUpdate()
     {
         Movement();
+        CoolDown(Time.deltaTime);
     }
 
     private void moveController()
@@ -52,19 +57,19 @@ public class Player : Fighter
     {
         if (_thrusting)
         {
-            _rigidbody.AddForce(-this.transform.up * this.thrustSpeed);
+            _rigidbody.AddForce(-this.transform.up * this.thrustSpeed * Time.deltaTime);
             _animator.SetBool("isRuning", true);
         }
         else if (_pull)
         {
-            _rigidbody.AddForce(this.transform.up * this.thrustSpeed);
+            _rigidbody.AddForce(this.transform.up * this.thrustSpeed * Time.deltaTime);
             _animator.SetBool("isRuning", true);
         }
         else { _animator.SetBool("isRuning", false); }
 
         if (_turnDirection != 0.0f)
         {
-            _rigidbody.AddTorque(_turnDirection * this.turnSpeed);
+            _rigidbody.AddTorque(_turnDirection * this.turnSpeed * Time.deltaTime);
             _animator.SetBool("isRuning", true);
         }
     }
@@ -97,5 +102,23 @@ public class Player : Fighter
     {
         for (int i = 0; i < level; i++)
             OnLevelUp();
+    }
+
+    public void HeatUp(float heat)
+    {
+        this.curHeat += heat;
+    }
+
+    private void CoolDown(float time)
+    {
+        if (this.curHeat > 0)
+        {
+            this.curHeat -= time * coolRate;
+        }
+        else
+        {
+            this.curHeat = 0;
+            return;
+        }
     }
 }
