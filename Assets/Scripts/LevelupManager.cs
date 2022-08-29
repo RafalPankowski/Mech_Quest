@@ -1,18 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelupManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Animator _animator;
+    public GameObject[] Guns;
+    public GameObject optionContainer;
+    
+    public GameObject temp;
+
+    private void Start()
     {
-        
+        _animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Upgrade()
     {
-        
+        _animator.SetTrigger("LevelUP");
+        /*
+        for (int i = 0; i < 2; i++)
+        {
+            Instantiate(temp, optionContainer.transform);
+            OptionUpgrade temp = 
+        }
+        */
     }
+
 }

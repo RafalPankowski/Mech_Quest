@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
     public float trajectoryVariance = 15.0f;
     private void Start()
     {
-        InvokeRepeating(nameof(Spawn), this.spawnRate , this.spawnRate);
+        InvokeRepeating(nameof(Spawn), this.spawnRate, this.spawnRate);
     }
 
     private void Spawn()

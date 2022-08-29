@@ -10,6 +10,7 @@ public class Player : Fighter
     private bool _thrusting, _pull;
     private float _turnDirection;
     public float thrustSpeed = 50.0f, turnSpeed = 10.0f;
+    public GameObject[] Gun_Slots;
 
     protected float immuneTime = 0.5f;
     protected float lastImmune;

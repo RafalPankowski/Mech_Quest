@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public Player player;
     public ParticleSystem explosion;
     public HubManager hub;
+    public LevelupManager levelupManager;
 
     public int lives = 3;
     public float respawnTime = 3.0f;
@@ -104,5 +105,11 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Level Up!");
         player.OnLevelUp();
+        levelupManager.Upgrade();
+    }
+
+    public void PauseGame()
+    {
+
     }
 }

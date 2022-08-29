@@ -155,9 +155,13 @@ MonoBehaviour:
   bulletPrefarb: {fileID: 4047487844418253820, guid: 1bac215a9bc78f74ba199489c2dc7b41, type: 3}
   thrustSpeed: 80
   turnSpeed: 10
+  Gun_Slots:
+  - {fileID: 2413597807938002914}
+  - {fileID: 2413597808263097146}
+  - {fileID: 2413597808144253999}
   curHeat: 0
   maxHeat: 100
-  coolRate: 3
+  coolRate: 5
 --- !u!95 &2413597807484158384
 Animator:
   serializedVersion: 4
