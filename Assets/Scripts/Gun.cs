@@ -12,7 +12,7 @@ public class Gun : MonoBehaviour
     {
         Aim(Input.mousePosition);
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && GameManager.instance.alive == true)
         {
             if (GameManager.instance.player.curHeat >= 100)
             {
@@ -30,8 +30,7 @@ public class Gun : MonoBehaviour
     }
     protected virtual void Shoot()
     {
-        
-        GameManager.instance.player.HeatUp(Heat);
+            GameManager.instance.player.HeatUp(Heat);
     }
 
     public void Aim(Vector2 mouse)

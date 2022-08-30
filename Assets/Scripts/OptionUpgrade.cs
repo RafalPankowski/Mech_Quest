@@ -19,17 +19,19 @@ public class OptionUpgrade : MonoBehaviour
     }
     public void UpgradeMech()
     {
-        GameObject gun = Instantiate(this.gun);
-        for(int i = 0; i <= GameManager.instance.player.Gun_Slots.Length; i++)
-        {
-            if(GameManager.instance.player.Gun_Slots[i].transform.childCount == 0)
-            {
-                GameObject slot = GameManager.instance.player.Gun_Slots[i];
-                gun.transform.parent = slot.transform;
-                gun.transform.position = slot.transform.position;
-                break;
-            }
-        }
+       for (int i = 0; i < GameManager.instance.player.Gun_Slots.Length; i++)
+       {
+         if (GameManager.instance.player.Gun_Slots[i].transform.childCount == 0)
+         {
+          GameObject gun = Instantiate(this.gun);
+          GameObject slot = GameManager.instance.player.Gun_Slots[i];
+          gun.transform.parent = slot.transform;
+          gun.transform.position = slot.transform.position;
+          gun.transform.localScale = slot.transform.localScale;
+          break;
+         }
+       }
+        GameManager.instance.alive = true;
         GameManager.instance.levelupManager._animator.SetTrigger("ChosedUpgrade");
     }
 }

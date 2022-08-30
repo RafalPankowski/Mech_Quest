@@ -32,8 +32,11 @@ public class Player : Fighter
 
     private void FixedUpdate()
     {
-        Movement();
-        CoolDown(Time.deltaTime);
+        if (GameManager.instance.alive == true)
+        {
+            Movement();
+            CoolDown(Time.deltaTime);
+        }
     }
 
     private void moveController()

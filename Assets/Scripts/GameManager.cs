@@ -106,10 +106,12 @@ public class GameManager : MonoBehaviour
         Debug.Log("Level Up!");
         player.OnLevelUp();
         levelupManager.Upgrade();
+        PauseGame();
     }
 
     public void PauseGame()
     {
+        alive = false;
 
     }
 }
