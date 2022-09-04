@@ -66,8 +66,8 @@ public class HubManager : MonoBehaviour
             float maxLevel = GameManager.instance.player.maxHeat;
             float currLevel = GameManager.instance.player.curHeat;
 
-            float completionRatio = (maxLevel * currLevel)/100;
-            heatLevel.localScale = new Vector3(completionRatio - 3.1f, 1, 1);
+            float completionRatio = (100 * currLevel)/maxLevel;
+            heatLevel.localScale = new Vector3(completionRatio, 1, 1);
         }
     }
 

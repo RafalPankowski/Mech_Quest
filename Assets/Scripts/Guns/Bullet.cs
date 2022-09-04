@@ -9,7 +9,7 @@ public class Bullet : Collidable
     public float maxLifetime = 1.0f;
 
     public int[] damagePoint = new int[] {1,2,3,4,5,6,7};
-    public int weaponLevel = 0;
+    public int weaponLevel = 4;
 
     private void Awake()
     {

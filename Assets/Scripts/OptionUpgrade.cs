@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class OptionUpgrade : MonoBehaviour
 {
+    public bool active;
     public GameObject option, gun;
     public Text Name, Heat, FireRate;
     public Image image;
@@ -33,5 +34,9 @@ public class OptionUpgrade : MonoBehaviour
        }
         GameManager.instance.alive = true;
         GameManager.instance.levelupManager._animator.SetTrigger("ChosedUpgrade");
+        foreach(Transform child in GameManager.instance.levelupManager.optionContainer.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
     }
 }

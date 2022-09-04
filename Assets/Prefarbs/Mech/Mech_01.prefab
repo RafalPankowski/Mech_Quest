@@ -150,8 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b88aee196c2c64cb095a33bdf63fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitpoint: 10
-  maxHitpoint: 10
+  hitpoint: 3
+  maxHitpoint: 3
   bulletPrefarb: {fileID: 4047487844418253820, guid: 1bac215a9bc78f74ba199489c2dc7b41, type: 3}
   thrustSpeed: 80
   turnSpeed: 10
@@ -161,7 +161,7 @@ MonoBehaviour:
   - {fileID: 2413597808144253999}
   curHeat: 0
   maxHeat: 100
-  coolRate: 5
+  coolRate: 10
 --- !u!95 &2413597807484158384
 Animator:
   serializedVersion: 4

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7960781945109019071}
   - component: {fileID: -7814564668441006784}
   m_Layer: 6
-  m_Name: Bullet_Gun
+  m_Name: Bullet Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 3dd95d812b337874d9f564c6dcd7063a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -98,5 +98,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 0.5
-  Heat: 4
+  Heat: 3
   bulletPrefarb: {fileID: 4047487844418253820, guid: 1bac215a9bc78f74ba199489c2dc7b41, type: 3}

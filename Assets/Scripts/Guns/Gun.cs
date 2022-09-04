@@ -6,15 +6,15 @@ public class Gun : MonoBehaviour
 {
     public float fireRate = 0.5f;
     public float Heat = 4.0f;
-    private float lastShoot;
+    protected float lastShoot;
 
-    private void Update()
+    protected virtual void Update()
     {
         Aim(Input.mousePosition);
 
         if (Input.GetMouseButton(0) && GameManager.instance.alive == true)
         {
-            if (GameManager.instance.player.curHeat >= 100)
+            if (GameManager.instance.player.curHeat > GameManager.instance.player.maxHeat - Heat)
             {
                 return;
             }
