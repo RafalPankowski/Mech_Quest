@@ -15,8 +15,8 @@ public class OptionUpgrade : MonoBehaviour
     {
         this.image.sprite = this.gun.GetComponent<SpriteRenderer>().sprite;
         this.Name.text = this.gun.name;
-        this.Heat.text = " Heat = " + this.gun.GetComponent<Gun>().Heat.ToString();
-        this.FireRate.text = " Fire Rate = " + this.gun.GetComponent<Gun>().fireRate.ToString();
+        this.Heat.text = " Heat = " + this.gun.GetComponent<Gun>().Heat[0].ToString();
+        this.FireRate.text = " Fire Rate = " + this.gun.GetComponent<Gun>().fireRate[0].ToString();
     }
     public void UpgradeMech()
     {

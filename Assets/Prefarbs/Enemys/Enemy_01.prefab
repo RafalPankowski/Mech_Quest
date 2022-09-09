@@ -168,8 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919c4a776398b7e4a9f0486f0e067edf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitpoint: 10
-  maxHitpoint: 10
+  hitpoint: 30
+  maxHitpoint: 30
   speed: 60
   maxLifetime: 30
   size: 1

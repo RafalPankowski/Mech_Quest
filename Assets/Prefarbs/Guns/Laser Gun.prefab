@@ -97,6 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f09309bfd34784695c3aa6e5407a3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 1
-  Heat: 5
+  fireRate:
+  - 1
+  Heat:
+  - 6
+  weaponLevel: 0
   laserPrefarb: {fileID: -1446617118365525718, guid: a649d336c34d1994c90489c6a5c0023a, type: 3}
