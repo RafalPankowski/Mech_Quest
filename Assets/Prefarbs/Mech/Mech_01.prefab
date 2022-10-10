@@ -331,6 +331,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shotgun
       objectReference: {fileID: 0}
+    - target: {fileID: 7082794739765842778, guid: 3bd7e248843ee7f498771ab4af5969b1, type: 3}
+      propertyPath: weaponLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082794739765842778, guid: 3bd7e248843ee7f498771ab4af5969b1, type: 3}
+      propertyPath: Heat.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082794739765842778, guid: 3bd7e248843ee7f498771ab4af5969b1, type: 3}
+      propertyPath: Heat.Array.data[1]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082794739765842778, guid: 3bd7e248843ee7f498771ab4af5969b1, type: 3}
+      propertyPath: Heat.Array.data[2]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082794739765842778, guid: 3bd7e248843ee7f498771ab4af5969b1, type: 3}
+      propertyPath: fireRate.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082794739765842778, guid: 3bd7e248843ee7f498771ab4af5969b1, type: 3}
+      propertyPath: fireRate.Array.data[1]
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082794739765842778, guid: 3bd7e248843ee7f498771ab4af5969b1, type: 3}
+      propertyPath: fireRate.Array.data[2]
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bd7e248843ee7f498771ab4af5969b1, type: 3}
 --- !u!4 &6854401348273031653 stripped

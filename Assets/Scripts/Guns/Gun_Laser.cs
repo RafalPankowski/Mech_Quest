@@ -24,7 +24,7 @@ public class Gun_Laser : Gun
     protected override void Update()
     {
         Aim(Input.mousePosition);
-        if(Input.GetMouseButton(0) && GameManager.instance.alive == true && GameManager.instance.player.curHeat + this.Heat[weaponLevel] < GameManager.instance.player.maxHeat)
+        if(Input.GetMouseButton(0) && RoundManager.instance.alive == true && RoundManager.instance.player.curHeat + this.Heat[weaponLevel] < RoundManager.instance.player.maxHeat)
         {
             weaponIsOn = true;
             if (Time.time - this.lastShoot > this.fireRate[weaponLevel])

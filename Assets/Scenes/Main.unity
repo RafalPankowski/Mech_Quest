@@ -5313,7 +5313,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &739838031
 MonoBehaviour:
@@ -6274,6 +6274,7 @@ MonoBehaviour:
   Guns:
   - {fileID: 7960781945109019065, guid: eca73240a3518d94e8f03a57a09b40cb, type: 3}
   - {fileID: 1211229362215317107, guid: 67b65bad6b35e2e479eb755702671159, type: 3}
+  - {fileID: 7082794739765842777, guid: 3bd7e248843ee7f498771ab4af5969b1, type: 3}
   optionContainer: {fileID: 4706717992838804550}
   optionPrefarb: {fileID: 5903673933494314927, guid: b7dc255df14a5904b9f7f40642262a05, type: 3}
 --- !u!95 &4706717991933169487
@@ -6448,61 +6449,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4706717992838804550}
   m_CullTransparentMesh: 1
---- !u!4 &5353946350495160159
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5353946350495160161}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5353946350495160160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5353946350495160161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9b6c5ae3ab51204ba17b96082e846a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  explosion: {fileID: 591069782}
-  hub: {fileID: 1608837522}
-  levelupManager: {fileID: 4706717991933169486}
-  lives: 3
-  respawnTime: 3
-  respawnImmuneTime: 3
-  alive: 1
-  exp: 0
-  lvl: 1
-  xpTable: 32000000320000003200000032000000320000003200000032000000320000003200000032000000
---- !u!1 &5353946350495160161
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5353946350495160159}
-  - component: {fileID: 5353946350495160160}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &6820732159549724329
 GameObject:
   m_ObjectHideFlags: 0
@@ -6602,3 +6548,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boundX: 0.2
   boundY: 0.2
+--- !u!1 &7747549136997436294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7747549136997436344}
+  - component: {fileID: 7747549136997436295}
+  m_Layer: 0
+  m_Name: RoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &7747549136997436295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7747549136997436294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9b6c5ae3ab51204ba17b96082e846a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  explosion: {fileID: 591069782}
+  hub: {fileID: 1608837522}
+  levelupManager: {fileID: 4706717991933169486}
+  lives: 3
+  respawnTime: 3
+  respawnImmuneTime: 3
+  alive: 1
+  exp: 0
+  lvl: 1
+  xpTable: 32000000320000003200000032000000320000003200000032000000320000003200000032000000
+--- !u!4 &7747549136997436344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7747549136997436294}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

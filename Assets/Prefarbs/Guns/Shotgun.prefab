@@ -102,5 +102,5 @@ MonoBehaviour:
   Heat:
   - 6
   weaponLevel: 0
-  bulletPrefarb: {fileID: 4047487844418253820, guid: 1bac215a9bc78f74ba199489c2dc7b41, type: 3}
+  ballPrefarb: {fileID: 3831104650420101756, guid: 40adc2763995b1f479001877bc579246, type: 3}
   bulletAmount: 030000000400000005000000

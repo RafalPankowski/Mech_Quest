@@ -13,9 +13,9 @@ public class Gun : MonoBehaviour
     {
         Aim(Input.mousePosition);
 
-        if (Input.GetMouseButton(0) && GameManager.instance.alive == true)
+        if (Input.GetMouseButton(0) && RoundManager.instance.alive == true)
         {
-            if (GameManager.instance.player.curHeat > GameManager.instance.player.maxHeat - Heat[weaponLevel])
+            if (RoundManager.instance.player.curHeat > RoundManager.instance.player.maxHeat - Heat[weaponLevel])
             {
                 return;
             }
@@ -31,7 +31,7 @@ public class Gun : MonoBehaviour
     }
     protected virtual void Shoot()
     {
-        GameManager.instance.player.HeatUp(Heat[weaponLevel]);
+        RoundManager.instance.player.HeatUp(Heat[weaponLevel]);
     }
 
     public void Aim(Vector2 mouse)
