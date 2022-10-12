@@ -13,11 +13,12 @@ public class Gun_Laser : Gun
     private void Awake()
     {
         
-            laserList = new List<Laser>();
-            Laser newline = Instantiate(laserPrefarb);
-            laserList.Add(newline);
-            newline.firePoint = this.transform;
-            weaponIsOn = false;
+        laserList = new List<Laser>();
+        Laser newline = Instantiate(laserPrefarb);
+        newline.weaponLevel = weaponLevel;
+        laserList.Add(newline);
+        newline.firePoint = this.transform;
+        weaponIsOn = false;
 
     }
 

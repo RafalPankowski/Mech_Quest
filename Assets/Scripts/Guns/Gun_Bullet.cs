@@ -9,6 +9,7 @@ public class Gun_Bullet : Gun
     {
         base.Shoot();
         Bullet bullet = Instantiate(this.bulletPrefarb, this.transform.position, this.transform.rotation);
+        bullet.weaponLevel = weaponLevel;
         bullet.Project(this.transform.up);
     }
 }

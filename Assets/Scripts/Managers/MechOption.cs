@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MechOption : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject mech;
+    public Image image;
+
     void Start()
     {
-        
+        this.image.sprite = this.mech.GetComponent<SpriteRenderer>().sprite;
     }
-
-    // Update is called once per frame
-    void Update()
+    public void MechChoice()
     {
-        
+        GameManager.instance.mech = this.mech;
+        GameManager.instance.menu.Play();
     }
 }

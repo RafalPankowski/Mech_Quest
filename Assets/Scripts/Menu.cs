@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    public Animator _animator;
+
+    private void Start()
+    {
+        //_animator = GetComponent<Animator>();
+    }
     public void Play()
     {
         SceneManager.LoadScene("Main");
@@ -12,5 +18,9 @@ public class Menu : MonoBehaviour
     public void Exit()
     {
         Application.Quit();
+    }
+    public void ChooseMech()
+    {
+        _animator.SetTrigger("ChooseMech");
     }
 }
