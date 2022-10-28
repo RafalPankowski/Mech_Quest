@@ -161,6 +161,8 @@ MonoBehaviour:
     maxNormalAngle: 0
   damagePoint: 01000000020000000300000004000000050000000600000007000000
   weaponLevel: 0
+  lineRenderer: {fileID: 0}
+  boxCollider2D: {fileID: 0}
   textures:
   - {fileID: 2800000, guid: 265507900c1c7e246b80d997a5c6d020, type: 3}
   - {fileID: 2800000, guid: 30b6952ff461f3440a19a93cb42f182d, type: 3}
