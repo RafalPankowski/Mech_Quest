@@ -13,18 +13,19 @@ public class Gun_Laser : Gun
     private void Awake()
     {
         
-            laserList = new List<Laser>();
-            Laser newline = Instantiate(laserPrefarb);
-            laserList.Add(newline);
-            newline.firePoint = this.transform;
-            weaponIsOn = false;
+        laserList = new List<Laser>();
+        Laser newline = Instantiate(laserPrefarb);
+        newline.weaponLevel = weaponLevel;
+        laserList.Add(newline);
+        newline.firePoint = this.transform;
+        weaponIsOn = false;
 
     }
 
     protected override void Update()
     {
         Aim(Input.mousePosition);
-        if(Input.GetMouseButton(0) && GameManager.instance.alive == true && GameManager.instance.player.curHeat + this.Heat[weaponLevel] < GameManager.instance.player.maxHeat)
+        if(Input.GetMouseButton(0) && RoundManager.instance.alive == true && RoundManager.instance.player.curHeat + this.Heat[weaponLevel] < RoundManager.instance.player.maxHeat)
         {
             weaponIsOn = true;
             if (Time.time - this.lastShoot > this.fireRate[weaponLevel])
@@ -42,22 +43,20 @@ public class Gun_Laser : Gun
 
     private void ToggleWeapon()
     {
-        if (weaponIsOn == false)
+        if (weaponIsOn == true)
         {
             foreach (var line in laserList)
             {
-                //line.gameObject.SetActive(false);
-                line.lineRenderer.enabled = false;
-                line.boxCollider2D.enabled = false;
+                line.lineRenderer.enabled = true;
+                line.boxCollider2D.enabled = true;
             }
         }
         else
         {
             foreach (var line in laserList)
             {
-                //line.gameObject.SetActive(true);
-                line.lineRenderer.enabled = true;
-                line.boxCollider2D.enabled = true;
+                line.lineRenderer.enabled = false;
+                line.boxCollider2D.enabled = false;
             }
         }
     }

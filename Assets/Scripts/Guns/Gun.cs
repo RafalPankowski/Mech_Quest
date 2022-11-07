@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public float[] fireRate =new float[] { 0.5f };
+    public float[] fireRate =new float[] { 3f };
     public float[] Heat =new float[] { 4.0f };
     protected float lastShoot;
     public int weaponLevel = 0;
@@ -13,15 +13,15 @@ public class Gun : MonoBehaviour
     {
         Aim(Input.mousePosition);
 
-        if (Input.GetMouseButton(0) && GameManager.instance.alive == true)
+        if (Input.GetMouseButton(0) && RoundManager.instance.alive == true)
         {
-            if (GameManager.instance.player.curHeat > GameManager.instance.player.maxHeat - Heat[weaponLevel])
+            if (RoundManager.instance.player.curHeat > RoundManager.instance.player.maxHeat - Heat[weaponLevel])
             {
                 return;
             }
             else
             { 
-                if (Time.time - lastShoot > fireRate[weaponLevel])
+                if (Time.time - lastShoot > (fireRate[weaponLevel] / RoundManager.instance.player.FireRate[RoundManager.instance.player.FireRateLevel]))
                 {
                     lastShoot = Time.time;
                     Shoot();
@@ -31,7 +31,7 @@ public class Gun : MonoBehaviour
     }
     protected virtual void Shoot()
     {
-        GameManager.instance.player.HeatUp(Heat[weaponLevel]);
+        RoundManager.instance.player.HeatUp(Heat[weaponLevel]);
     }
 
     public void Aim(Vector2 mouse)

@@ -98,9 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate:
-  - 1
+  - 0.3
   Heat:
-  - 8
-  bulletAmount: 010000000200000003000000
+  - 10
   weaponLevel: 0
-  laserPrefarb: {fileID: 0}
+  laserPrefarb: {fileID: -1446617118365525718, guid: a649d336c34d1994c90489c6a5c0023a, type: 3}
