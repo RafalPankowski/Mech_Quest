@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public float[] fireRate =new float[] { 0.5f };
+    public float[] fireRate =new float[] { 3f };
     public float[] Heat =new float[] { 4.0f };
     protected float lastShoot;
     public int weaponLevel = 0;
@@ -21,7 +21,7 @@ public class Gun : MonoBehaviour
             }
             else
             { 
-                if (Time.time - lastShoot > fireRate[weaponLevel])
+                if (Time.time - lastShoot > (fireRate[weaponLevel] / RoundManager.instance.player.FireRate[RoundManager.instance.player.FireRateLevel]))
                 {
                     lastShoot = Time.time;
                     Shoot();

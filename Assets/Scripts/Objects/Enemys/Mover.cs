@@ -14,7 +14,7 @@ public class Mover : Fighter
 
     public float size = 1.0f;
     public float minSize = 0.85f;
-    public float maxSize = 1.5f;
+    public float maxSize = 1.2f;
 
     protected virtual void Awake()
     {
@@ -39,7 +39,7 @@ public class Mover : Fighter
     {
         if (_playerTarget && RoundManager.instance.alive == true)
         {
-            _rigidbody.velocity = new Vector2(moveDirection.x, moveDirection.y) * speed * Time.deltaTime;
+            _rigidbody.velocity = new Vector2(moveDirection.x, moveDirection.y) * Random.Range(speed/2, speed+speed/3) * Time.deltaTime;
             _animator.SetBool("isRuning", true);
         }
         else

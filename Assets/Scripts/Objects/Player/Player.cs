@@ -17,7 +17,11 @@ public class Player : Fighter
 
     public float curHeat = 0;
     public float maxHeat = 100;
-    public float coolRate = 3;
+    public int coolLevel;
+    public float[] coolRate = {3,5,7,10,13,16,20,24};
+
+    public int FireRateLevel;
+    public float[] FireRate = { 1,1.15f,1.3f,1.55f,1.7f,1.85f,2,2.3f };
 
     private void Awake()
     {
@@ -38,7 +42,7 @@ public class Player : Fighter
             CoolDown(Time.deltaTime);
         }
     }
-
+    
     private void moveController()
     {
         _thrusting = Input.GetKey(KeyCode.W);
@@ -99,7 +103,7 @@ public class Player : Fighter
 
     public void OnLevelUp()
     { 
-        this.maxHitpoint++;
+        this.maxHitpoint = this.maxHitpoint + 2;
         this.hitpoint = this.maxHitpoint;
     }
     public void SetLevel(int level)
@@ -117,7 +121,7 @@ public class Player : Fighter
     {
         if (this.curHeat > 0)
         {
-            this.curHeat -= time * coolRate;
+            this.curHeat -= time * coolRate[coolLevel];
         }
         else
         {

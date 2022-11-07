@@ -33,10 +33,12 @@ public class OptionUpgrade : MonoBehaviour
          }
        }
         RoundManager.instance.alive = true;
-        RoundManager.instance.levelupManager._animator.SetTrigger("ChosedUpgrade");
-        foreach(Transform child in RoundManager.instance.levelupManager.optionContainer.transform)
+        RoundManager.instance.levelManager._animator.SetTrigger("ChosedUpgrade");
+        foreach(Transform child in RoundManager.instance.levelManager.optionPanel.transform)
         {
             GameObject.Destroy(child.gameObject);
         }
+
+        GameManager.instance.ResumeGame();
     }
 }

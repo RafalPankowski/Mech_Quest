@@ -43,22 +43,20 @@ public class Gun_Laser : Gun
 
     private void ToggleWeapon()
     {
-        if (weaponIsOn == false)
+        if (weaponIsOn == true)
         {
             foreach (var line in laserList)
             {
-                //line.gameObject.SetActive(false);
-                line.lineRenderer.enabled = false;
-                line.boxCollider2D.enabled = false;
+                line.lineRenderer.enabled = true;
+                line.boxCollider2D.enabled = true;
             }
         }
         else
         {
             foreach (var line in laserList)
             {
-                //line.gameObject.SetActive(true);
-                line.lineRenderer.enabled = true;
-                line.boxCollider2D.enabled = true;
+                line.lineRenderer.enabled = false;
+                line.boxCollider2D.enabled = false;
             }
         }
     }

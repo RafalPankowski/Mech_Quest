@@ -6,6 +6,7 @@ public class Insect : Mover
 {
     public Sprite[] sprites;
     private SpriteRenderer _spriteRenderer;
+    public GameObject shard;
 
     protected override void Awake()
     {
@@ -27,21 +28,12 @@ public class Insect : Mover
             CreateSplit();
         }
         RoundManager.instance.explosion.transform.position = transform.position;
-        RoundManager.instance.explosion.Play();
-        if (size > 1.3f)
-        {
-            RoundManager.instance.GrantXp(3);
-        }
-        else if (size < 0.8f)
-        {
-            RoundManager.instance.GrantXp(1);
-        }
-        else
-        {
-            RoundManager.instance.GrantXp(2);
-        }
-        RoundManager.instance.hub.SetLevel();
+        RoundManager.instance.explosion.Play(); 
+        //RoundManager.instance.hub.SetLevel();
+
         Destroy(this.gameObject);
+
+        CreateShard();
     }
 
     private void CreateSplit()
@@ -51,5 +43,12 @@ public class Insect : Mover
 
         Mover half = Instantiate(this, position, this.transform.rotation);
         half.size = this.size * 0.7f;
+        half.hitpoint = maxHitpoint/2;
+    }
+
+    private void CreateShard()
+    {
+        Vector2 position = this.transform.position;
+        Instantiate(this.shard, position, Quaternion.identity);
     }
 }

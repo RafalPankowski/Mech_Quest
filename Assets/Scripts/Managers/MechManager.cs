@@ -13,7 +13,7 @@ public class MechManager : MonoBehaviour
     {
         for(int i = 0; i < mech.Length; i++)
         {
-            MechOption(mech[i], new Vector3(0,-20.0f + ( i * -120.0f)));
+            MechOption(mech[i], new Vector3(0,-20.0f + ( i * -90.0f)));
         }
     }
 
@@ -21,7 +21,7 @@ public class MechManager : MonoBehaviour
     {
         GameObject option = Instantiate(optionMech);
         option.GetComponent<MechOption>().mech = mech;
-        option.transform.SetParent(optionContainer.transform, transform.parent);
+        option.transform.SetParent(optionContainer.transform, false);
         option.transform.localPosition = position;
     }
 }

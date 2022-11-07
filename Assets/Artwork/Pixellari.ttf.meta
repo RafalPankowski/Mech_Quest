@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f1bf6aada9d68794183657f6112bc799
+guid: 49117796bda6bd94fbbb60de4cc2bc9d
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - PixelPlay
+  - Pixellari
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

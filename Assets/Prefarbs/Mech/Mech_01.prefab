@@ -150,18 +150,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b88aee196c2c64cb095a33bdf63fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitpoint: 3
-  maxHitpoint: 3
-  bulletPrefarb: {fileID: 4047487844418253820, guid: 1bac215a9bc78f74ba199489c2dc7b41, type: 3}
+  hitpoint: 10
+  maxHitpoint: 10
+  bulletPrefarb: {fileID: 0}
   thrustSpeed: 80
-  turnSpeed: 10
+  turnSpeed: 15
   Gun_Slots:
   - {fileID: 2413597807938002914}
   - {fileID: 2413597808263097146}
   - {fileID: 2413597808144253999}
   curHeat: 0
   maxHeat: 100
-  coolRate: 10
+  coolLevel: 0
+  coolRate:
+  - 3
+  - 5
+  - 7
+  - 10
+  - 13
+  - 16
+  - 20
+  - 24
+  FireRateLevel: 0
+  FireRate:
+  - 1
+  - 1.15
+  - 1.3
+  - 1.55
+  - 1.7
+  - 1.85
+  - 2
+  - 2.3
 --- !u!95 &2413597807484158384
 Animator:
   serializedVersion: 4
@@ -337,7 +356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7082794739765842778, guid: 3bd7e248843ee7f498771ab4af5969b1, type: 3}
       propertyPath: Heat.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7082794739765842778, guid: 3bd7e248843ee7f498771ab4af5969b1, type: 3}
       propertyPath: Heat.Array.data[1]
@@ -349,7 +368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7082794739765842778, guid: 3bd7e248843ee7f498771ab4af5969b1, type: 3}
       propertyPath: fireRate.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7082794739765842778, guid: 3bd7e248843ee7f498771ab4af5969b1, type: 3}
       propertyPath: fireRate.Array.data[1]
@@ -358,6 +377,10 @@ PrefabInstance:
     - target: {fileID: 7082794739765842778, guid: 3bd7e248843ee7f498771ab4af5969b1, type: 3}
       propertyPath: fireRate.Array.data[2]
       value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082794739765842778, guid: 3bd7e248843ee7f498771ab4af5969b1, type: 3}
+      propertyPath: bulletAmount.Array.size
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bd7e248843ee7f498771ab4af5969b1, type: 3}

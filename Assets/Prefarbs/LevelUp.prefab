@@ -114,9 +114,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e970c7427ce628b4e9a4e0d17db6d151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
   Guns: []
   optionContainer: {fileID: 0}
-  temp: {fileID: 5903673933494314927, guid: b7dc255df14a5904b9f7f40642262a05, type: 3}
+  optionPrefarb: {fileID: 0}
 --- !u!114 &4706717992520094326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +133,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1280, y: 720}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

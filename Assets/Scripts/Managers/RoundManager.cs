@@ -10,16 +10,15 @@ public class RoundManager : MonoBehaviour
     public Player player;
     public ParticleSystem explosion;
     public HubManager hub;
-    public LevelupManager levelupManager;
+    public LevelManager levelManager;
+    public Timer timer;
+    public PlayerSpawner pSpawner;
+    public EnemySpawner eSpawner;
 
     public int lives = 3;
     public float respawnTime = 3.0f;
     public float respawnImmuneTime = 3.0f;
     public bool alive = true;
-
-    public int exp = 0;
-    public int lvl = 1;
-    public List<int> xpTable;
 
     private void Awake()
     {
@@ -67,51 +66,6 @@ public class RoundManager : MonoBehaviour
     {
         this.lives = 3;
         Invoke(nameof(Respawn), this.respawnTime);
-        hub.SetLevel();
-    }
-
-    public int GetCurrentLevel()
-    {
-        int r = 0;
-        int add = 0;
-        while (exp >= add)
-        {
-            add += xpTable[r];
-            r++;
-            if (r == xpTable.Count)
-                return r;
-        }
-        return r;
-    }
-    public int GetXpToLevel(int level)
-    {
-        int r = 0;
-        int xp = 0;
-        while (r < level)
-        {
-            xp += xpTable[r];
-            r++;
-        }
-        return xp;
-    }
-    public void GrantXp(int xp)
-    {
-        int currLevel = GetCurrentLevel();
-        exp += xp;
-        if (currLevel < GetCurrentLevel())
-            OnLevelUp();
-    }
-    public void OnLevelUp()
-    {
-        Debug.Log("Level Up!");
-        player.OnLevelUp();
-        levelupManager.Upgrade();
-        PauseGame();
-    }
-
-    public void PauseGame()
-    {
-        alive = false;
-
+        //hub.SetLevel();
     }
 }

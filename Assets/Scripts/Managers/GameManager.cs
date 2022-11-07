@@ -16,7 +16,16 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
     }
+    public void PauseGame()
+    {
+        Time.timeScale = (float)GameState.Paused;
 
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = (float)GameState.Gameplay;
+    }
 
 
 

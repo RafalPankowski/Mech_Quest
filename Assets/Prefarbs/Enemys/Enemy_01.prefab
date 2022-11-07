@@ -123,18 +123,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0038429499, y: 0.01624602}
+  m_Offset: {x: -0.0014430135, y: -0.029551357}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.6458333, y: 0.6666667}
+    oldSize: {x: 0.96875, y: 1}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.37024218, y: 0.55746067}
+  m_Size: {x: 0.46862122, y: 0.82917446}
   m_EdgeRadius: 0
 --- !u!95 &-3437826550755476508
 Animator:
@@ -168,14 +168,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919c4a776398b7e4a9f0486f0e067edf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitpoint: 30
-  maxHitpoint: 30
-  speed: 60
+  hitpoint: 15
+  maxHitpoint: 15
+  speed: 40
   maxLifetime: 30
   size: 1
   minSize: 0.85
-  maxSize: 1.5
+  maxSize: 1.2
   sprites: []
+  shard: {fileID: 890109668257710036, guid: c82d8d3212cf1a345aa61846360ca6e1, type: 3}
 --- !u!114 &3372928173421003661
 MonoBehaviour:
   m_ObjectHideFlags: 0

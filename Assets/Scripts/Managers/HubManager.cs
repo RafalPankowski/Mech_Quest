@@ -14,7 +14,7 @@ public class HubManager : MonoBehaviour
     {
         LivesCounter();
         HitpointCounter();
-        SetLevel();
+        //SetLevel();
         xpBarUpdate();
         HeatLevel();
     }
@@ -22,18 +22,18 @@ public class HubManager : MonoBehaviour
 
     public void xpBarUpdate()
     {
-        int currLevel = RoundManager.instance.GetCurrentLevel();
-        if (currLevel == RoundManager.instance.xpTable.Count)
+        int currLevel = RoundManager.instance.levelManager.GetCurrentLevel();
+        if (currLevel == RoundManager.instance.levelManager.xpTable.Count)
         {
             return;
         }
         else
         {
-            int prevLevelXp = RoundManager.instance.GetXpToLevel(currLevel - 1);
-            int currLevelXp = RoundManager.instance.GetXpToLevel(currLevel);
+            int prevLevelXp = RoundManager.instance.levelManager.GetXpToLevel(currLevel - 1);
+            int currLevelXp = RoundManager.instance.levelManager.GetXpToLevel(currLevel);
 
             int diff = currLevelXp - prevLevelXp;
-            int currXpIntoLevel = RoundManager.instance.exp - prevLevelXp;
+            int currXpIntoLevel = RoundManager.instance.levelManager.exp - prevLevelXp;
 
             float completionRatio = (float)currXpIntoLevel / (float)diff;
             xpBar.localScale = new Vector3(completionRatio, 1, 1);
@@ -51,7 +51,7 @@ public class HubManager : MonoBehaviour
     }
     public void SetLevel()
     {
-        levelText.text = RoundManager.instance.GetCurrentLevel().ToString();
+        levelText.text = RoundManager.instance.levelManager.GetCurrentLevel().ToString();
     }
 
     public void HeatLevel()
@@ -66,7 +66,7 @@ public class HubManager : MonoBehaviour
             float maxLevel = RoundManager.instance.player.maxHeat;
             float currLevel = RoundManager.instance.player.curHeat;
 
-            float completionRatio = (100 * currLevel)/maxLevel;
+            float completionRatio = (120 * currLevel)/maxLevel;
             heatLevel.localScale = new Vector3(completionRatio, 1, 1);
         }
     }
