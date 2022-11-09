@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public Mover[] enemyPrefarb;
+    public Mover enemyPrefarb;
 
     public float spawnRate = 5.0f;
     public int spawnAmount = 8;
     public float spawnDistance = 20.0f;
     public float trajectoryVariance = 15.0f;
+
     private float timer;
     public int loopCounter;
 
@@ -28,12 +29,12 @@ public class EnemySpawner : MonoBehaviour
             loopCounter++;
         }
 
-        if (loopCounter*(int)spawnRate >= 60)
+        if (loopCounter*(int)spawnRate >= 180)
         {
             spawnAmount++;
             loopCounter = 0;
         }
-        else if (loopCounter * (int)spawnRate >= 300)
+        else if (loopCounter * (int)spawnRate >= 600)
         {
             Spawn(spawnAmount * 2);
         }
@@ -42,17 +43,24 @@ public class EnemySpawner : MonoBehaviour
 
     private void Spawn(int Amount)
     {
-        for (int i = 0; i < Amount; i++)
+        if (spawnAmount * RoundManager.instance.levelManager.lvl * 3 >= this.gameObject.transform.childCount)
         {
-            Vector3 spawnDirection = Random.insideUnitCircle.normalized * this.spawnDistance;
-            Vector2 spawnPoint = Camera.main.transform.position + spawnDirection;
+            for (int i = 0; i < Amount; i++)
+            {
+                Vector3 spawnDirection = Random.insideUnitCircle.normalized * this.spawnDistance;
+                Vector2 spawnPoint = Camera.main.transform.position + spawnDirection;
 
-            float variance = Random.Range(-this.trajectoryVariance, this.trajectoryVariance);
-            Quaternion rotation = Quaternion.AngleAxis(variance, Vector3.forward);
+                float variance = Random.Range(-this.trajectoryVariance, this.trajectoryVariance);
+                Quaternion rotation = Quaternion.AngleAxis(variance, Vector3.forward);
 
-            Mover enemy = Instantiate(this.enemyPrefarb[RoundManager.instance.levelManager.lvl], spawnPoint, rotation);
-            enemy.size = Random.Range(enemy.minSize, enemy.maxSize);
-            enemy.transform.parent = this.transform;
+                Mover enemy = Instantiate(this.enemyPrefarb, spawnPoint, rotation);
+                enemy.size = Random.Range(enemy.minSize, enemy.maxSize);
+                enemy.transform.parent = this.transform;
+            }
+        }
+        else 
+        {
+            return;
         }
     }
 }

@@ -9,7 +9,10 @@ public class Menu : MonoBehaviour
 
     private void Start()
     {
-        //_animator = GetComponent<Animator>();
+        if(GameManager.instance.menu == null)
+        {
+            GameManager.instance.menu = GetComponent<Menu>();
+        }
     }
     public void Play()
     {

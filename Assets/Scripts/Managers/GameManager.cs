@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public Menu menu;
+    public CursorManager cursor;
 
     public GameObject mech;
 
@@ -14,6 +15,12 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        if (GameManager.instance != null)
+        {
+            Destroy(cursor.gameObject);
+            Destroy(gameObject);
+            return;
+        }
         instance = this;
     }
     public void PauseGame()

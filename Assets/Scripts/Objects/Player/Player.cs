@@ -6,22 +6,21 @@ public class Player : Fighter
 {
     private Animator _animator;
     private Rigidbody2D _rigidbody;
-    public Bullet bulletPrefarb;
     private bool _thrusting, _pull;
     private float _turnDirection;
     public float thrustSpeed = 50.0f, turnSpeed = 10.0f;
     public GameObject[] Gun_Slots;
 
-    protected float immuneTime = 0.5f;
+    protected float immuneTime = 0.3f;
     protected float lastImmune;
 
     public float curHeat = 0;
     public float maxHeat = 100;
     public int coolLevel;
-    public float[] coolRate = {3,5,7,10,13,16,20,24};
+    public float[] coolRate = {3,6,10,14,16,18,20,24,26,30};
 
     public int FireRateLevel;
-    public float[] FireRate = { 1,1.15f,1.3f,1.55f,1.7f,1.85f,2,2.3f };
+    public float[] FireRate = { 1,1.5f,2f,2.5f,3f,3.5f,4f,4.5f,5,6};
 
     private void Awake()
     {

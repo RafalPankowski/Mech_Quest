@@ -39,7 +39,7 @@ public class Laser : Collidable
         this.boxCollider2D.offset = mousePos;
 
         Vector2 direction = mousePos - (Vector2)startPosition.transform.position;
-        RaycastHit2D hit = Physics2D.Raycast((Vector2)startPosition.transform.position, direction.normalized, direction.magnitude, LayerMask.GetMask("Asteroid"));   
+        RaycastHit2D hit = Physics2D.Raycast((Vector2)startPosition.transform.position, direction.normalized, direction.magnitude, LayerMask.GetMask("Enemy"));   
         if (hit)
         {
             this.lineRenderer.SetPosition(1, hit.point);
@@ -68,7 +68,7 @@ public class Laser : Collidable
     }
     protected override void OnCollide(Collider2D coll)
     {
-        if (coll.tag == "Asteroid")
+        if (coll.tag == "Enemy")
         {
             if (coll.name == "Player")
                 return;

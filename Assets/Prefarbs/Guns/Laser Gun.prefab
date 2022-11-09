@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate:
-  - 0.3
+  - 0.5
   Heat:
   - 10
   weaponLevel: 0
