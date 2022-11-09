@@ -14,6 +14,7 @@ public class Shard : Collidable
         base.Start();
         startingPosition = this.transform.position;
         originalSize = transform.localScale;
+        this.transform.parent = RoundManager.instance.shardContainer.transform;
     }
 
     private void Update()

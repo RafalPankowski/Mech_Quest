@@ -24,7 +24,7 @@ public class Ball : Collidable
     }
     protected override void OnCollide(Collider2D coll)
     {
-        if (coll.tag == "Asteroid")
+        if (coll.tag == "Enemy")
         {
             if (coll.name == "Player")
                 return;

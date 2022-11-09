@@ -19,6 +19,7 @@ public class Gun_Laser : Gun
         laserList.Add(newline);
         newline.firePoint = this.transform;
         weaponIsOn = false;
+        //newline.transform.parent = this.transform;
 
     }
 

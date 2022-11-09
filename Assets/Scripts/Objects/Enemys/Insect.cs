@@ -5,13 +5,11 @@ using UnityEngine;
 public class Insect : Mover
 {
     public Sprite[] sprites;
-    private SpriteRenderer _spriteRenderer;
     public GameObject shard;
 
     protected override void Awake()
     {
         base.Awake();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     protected override void Start()
@@ -29,7 +27,6 @@ public class Insect : Mover
         }
         RoundManager.instance.explosion.transform.position = transform.position;
         RoundManager.instance.explosion.Play(); 
-        //RoundManager.instance.hub.SetLevel();
 
         Destroy(this.gameObject);
 
