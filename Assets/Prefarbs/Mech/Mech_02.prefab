@@ -89,8 +89,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7666339886156211517}
+  m_Children: []
   m_Father: {fileID: 115542931599229469}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -308,65 +307,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1001 &296725763165461637
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 115542931470763906}
-    m_Modifications:
-    - target: {fileID: 7960781945109019064, guid: eca73240a3518d94e8f03a57a09b40cb, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7960781945109019064, guid: eca73240a3518d94e8f03a57a09b40cb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7960781945109019064, guid: eca73240a3518d94e8f03a57a09b40cb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7960781945109019064, guid: eca73240a3518d94e8f03a57a09b40cb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7960781945109019064, guid: eca73240a3518d94e8f03a57a09b40cb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7960781945109019064, guid: eca73240a3518d94e8f03a57a09b40cb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7960781945109019064, guid: eca73240a3518d94e8f03a57a09b40cb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7960781945109019064, guid: eca73240a3518d94e8f03a57a09b40cb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7960781945109019064, guid: eca73240a3518d94e8f03a57a09b40cb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7960781945109019064, guid: eca73240a3518d94e8f03a57a09b40cb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7960781945109019064, guid: eca73240a3518d94e8f03a57a09b40cb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7960781945109019065, guid: eca73240a3518d94e8f03a57a09b40cb, type: 3}
-      propertyPath: m_Name
-      value: Bullet Gun
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: eca73240a3518d94e8f03a57a09b40cb, type: 3}
---- !u!4 &7666339886156211517 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7960781945109019064, guid: eca73240a3518d94e8f03a57a09b40cb, type: 3}
-  m_PrefabInstance: {fileID: 296725763165461637}
-  m_PrefabAsset: {fileID: 0}

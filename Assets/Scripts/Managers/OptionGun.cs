@@ -19,5 +19,6 @@ public class OptionGun : MonoBehaviour
         this.Heat.text = " Heat = " + this.gun.GetComponent<Gun>().Heat[0].ToString();
         this.FireRate.text = " Fire Rate = " + this.gun.GetComponent<Gun>().fireRate[0].ToString();
         this.button.GetComponent<Button>().onClick.AddListener(delegate { RoundManager.instance.levelManager.ImplementGun(gun); });
+        this.button.GetComponent<Button>().onClick.AddListener(delegate { RoundManager.instance.levelManager.UpgradeChoosed(gun); });
     }
 }

@@ -32,6 +32,7 @@ public class RoundManager : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<Player>();
+        levelManager.ImplementGun(levelManager.Guns[Random.Range(0, levelManager.Guns.Length)]);
     }
 
     private void Update()

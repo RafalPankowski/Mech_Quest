@@ -31,6 +31,11 @@ public class OptionStat : MonoBehaviour
                 this.image.sprite = statSprites[0];
                 this.button.GetComponent<Button>().onClick.AddListener(delegate { RoundManager.instance.levelManager.IncreaseStat(stat); });
                 break;
+            case "MaxHeat":
+                this.Skill_level.text = " Increasied skill to : " + (playerStat.maxHeat + ((int)playerStat.maxHeat / 10)) ;
+                this.image.sprite = statSprites[0];
+                this.button.GetComponent<Button>().onClick.AddListener(delegate { RoundManager.instance.levelManager.IncreaseStat(stat); });
+                break;
         }
     }
 }

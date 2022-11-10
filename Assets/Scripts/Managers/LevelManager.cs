@@ -61,6 +61,8 @@ public class LevelManager : MonoBehaviour
     }
     public void Upgrade()
     {
+        List<int> g_usedValues = new List<int>();
+        List<int> s_usedValues = new List<int>();
         string[] upgradeCategory = {"Gun","Stat"};
         _animator.SetTrigger("LevelUP");
         for (int i = 0; i <= Random.Range(2, 3); i++)
@@ -80,9 +82,9 @@ public class LevelManager : MonoBehaviour
                         }
                     }
                     if (Guns.Length != 0 && gunSlotAvailable == false)
-                    {                 
-                        int gIndex = Random.Range(0, Guns.Length);
-                        OptionGun(Guns[index], new Vector3(0, i * -110.0f));
+                    {
+                        int gIndex = GameManager.instance.UniqueRandomInt(0, Guns.Length,g_usedValues);
+                        OptionGun(Guns[gIndex], new Vector3(0, i * -110.0f));
                     }
                     else
                     {
@@ -90,8 +92,8 @@ public class LevelManager : MonoBehaviour
                     }
                     break;
                 case "Stat":
-                    string[] statName = {"FireRate","CoolRate" };
-                    int sIndex = Random.Range(0, statName.Length);
+                    string[] statName = {"FireRate","CoolRate","MaxHeat" };
+                    int sIndex = GameManager.instance.UniqueRandomInt(0, statName.Length, s_usedValues);
                     OptionStat(statName[sIndex], new Vector3(0, i * -110.0f));
                     Debug.Log("wybrano statystyke");
                     break;
@@ -125,6 +127,9 @@ public class LevelManager : MonoBehaviour
             case "CoolRate":
                 playerStat.coolLevel++;
                 break;
+            case "MaxHeat":
+                playerStat.maxHeat += (int)playerStat.maxHeat / 10;
+                break;
         }
         _animator.SetTrigger("ChosedUpgrade");
         foreach (Transform child in RoundManager.instance.levelManager.optionPanel.transform)
@@ -148,7 +153,7 @@ public class LevelManager : MonoBehaviour
                 break;
             }
         }
-        UpgradeChoosed(Gun);
+        //UpgradeChoosed(Gun);
     }
     public void OrganizedGunInArray(GameObject gun)
     {
