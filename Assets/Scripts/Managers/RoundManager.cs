@@ -10,7 +10,7 @@ public class RoundManager : MonoBehaviour
 
     public Player player;
     public ParticleSystem explosion;
-    public HubManager hub;
+    public HudManager hud;
     public LevelManager levelManager;
     public Timer timer;
     public PlayerSpawner pSpawner;

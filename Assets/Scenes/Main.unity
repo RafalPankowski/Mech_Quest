@@ -702,7 +702,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1280, y: 720}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -6206,6 +6206,7 @@ MonoBehaviour:
   spawnDistance: 15
   trajectoryVariance: 15
   loopCounter: 0
+  enemyBonus: 0
 --- !u!1 &932696582
 GameObject:
   m_ObjectHideFlags: 0
@@ -6576,7 +6577,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1280, y: 720}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -6833,7 +6834,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1280, y: 720}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -7882,7 +7883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   explosion: {fileID: 591069782}
-  hub: {fileID: 1608837522}
+  hud: {fileID: 1608837522}
   levelManager: {fileID: 4706717991933169486}
   timer: {fileID: 510423028}
   pSpawner: {fileID: 481762863}

@@ -10,35 +10,42 @@ public class EnemySpawner : MonoBehaviour
     public int spawnAmount = 8;
     public float spawnDistance = 20.0f;
     public float trajectoryVariance = 15.0f;
+    public float spawnIncreaseTime = 180;
 
     private float timer;
-    public int loopCounter;
+    private float sTimer;
+    public int spawnCounter;
+
+    public int enemyBonus;
 
     private void Start()
     {
          timer = spawnRate;
+        sTimer = spawnIncreaseTime;
     }
 
-    private void Update()
+     void Update()
     {
         timer -= Time.deltaTime;
-        if(timer < 0)
+        sTimer -= Time.deltaTime;
+        if (timer < 0)
         {
             timer = spawnRate;
             Spawn(spawnAmount);
-            loopCounter++;
+            spawnCounter++;
         }
 
-        if (loopCounter*(int)spawnRate >= 180)
+        if (sTimer < 0)
         {
             spawnAmount++;
-            loopCounter = 0;
-        }
-        else if (loopCounter * (int)spawnRate >= 600)
-        {
-            Spawn(spawnAmount * 2);
+            sTimer = spawnIncreaseTime;
         }
 
+        if (spawnCounter * spawnRate >= 60)
+        {
+            enemyBonus += 10;
+            spawnCounter = 0;
+        }
     }
 
     private void Spawn(int Amount)
@@ -56,6 +63,8 @@ public class EnemySpawner : MonoBehaviour
                 Mover enemy = Instantiate(this.enemyPrefarb, spawnPoint, rotation);
                 enemy.size = Random.Range(enemy.minSize, enemy.maxSize);
                 enemy.transform.parent = this.transform;
+                enemy.maxHitpoint += enemyBonus;
+                enemy.hitpoint = enemy.maxHitpoint;
             }
         }
         else 
