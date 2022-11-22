@@ -27,6 +27,11 @@ public class Menu : MonoBehaviour
         _animator.SetTrigger("ChooseMech");
     }
 
+    public void SettingsMenu()
+    {
+        _animator.SetTrigger("Settings");
+    }
+
     public void BackToMenu()
     {
         _animator.SetTrigger("Back");
