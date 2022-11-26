@@ -98,8 +98,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate:
-  - 1
+  - 0.4
   Heat:
   - 10
   weaponLevel: 0
+  damagePoint:
+  - 0.5
   laserPrefarb: {fileID: -1446617118365525718, guid: a649d336c34d1994c90489c6a5c0023a, type: 3}

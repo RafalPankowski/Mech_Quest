@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Laser : Collidable
 {
-    public int[] damagePoint = new int[] { 1, 2, 3, 4, 5, 6, 7 };
-    public int weaponLevel = 0;
 
     public LineRenderer lineRenderer;
     public BoxCollider2D boxCollider2D;
+
+    public Gun_Laser laserGun;
 
     [SerializeField]
     private Texture[] textures;
@@ -27,6 +27,8 @@ public class Laser : Collidable
     {
         this.lineRenderer = GetComponent<LineRenderer>();
         this.boxCollider2D = GetComponent<BoxCollider2D>();
+        this.laserGun = GetComponent<Gun_Laser>();
+
     }
 
     public void AssignTarget(Transform startPosition)
@@ -68,6 +70,8 @@ public class Laser : Collidable
     }
     protected override void OnCollide(Collider2D coll)
     {
+        var playerDmgBouns = RoundManager.instance.player;
+
         if (coll.tag == "Enemy")
         {
             if (coll.name == "Player")
@@ -75,7 +79,7 @@ public class Laser : Collidable
 
             Damage dmg = new Damage
             {
-                damageAmount = damagePoint[weaponLevel],
+                damageAmount = laserGun.damagePoint[laserGun.weaponLevel] + (int)((laserGun.damagePoint[laserGun.weaponLevel] * playerDmgBouns.damageBonus[playerDmgBouns.damageBonusLevel])/100),
             };
             coll.SendMessage("ReciveDamage", dmg);
         }

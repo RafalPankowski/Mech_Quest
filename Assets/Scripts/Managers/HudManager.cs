@@ -10,6 +10,8 @@ public class HudManager : MonoBehaviour
     public GameObject heatBar;
     public RectTransform heatLevel;
 
+    public Text MaxHeat, CoolingRate, CoolingRateBonus, FireRate, DamageBonus;
+
     private void FixedUpdate()
     {
         LivesCounter();
@@ -69,6 +71,17 @@ public class HudManager : MonoBehaviour
             float completionRatio = (120 * currLevel)/maxLevel;
             heatLevel.localScale = new Vector3(completionRatio, 1, 1);
         }
+    }
+
+    public void UpdateRoundMenu()
+    {
+        var playerStat = RoundManager.instance.player;
+
+        this.MaxHeat.text = "Max Heat: " + playerStat.maxHeat.ToString();
+        this.CoolingRate.text = "Cooling Rate: " + (playerStat.coolingRate + (playerStat.coolingRate * playerStat.coolingBonus[playerStat.coolingLevel])/100).ToString();
+        this.CoolingRateBonus.text = "Cooling Rate Bonus: " + playerStat.coolingBonus[playerStat.coolingLevel].ToString() + "%";
+        this.FireRate.text = "Fire Rate: " + playerStat.FireRateBonus[playerStat.FireRateLevel].ToString()+"%";
+        this.DamageBonus.text = "Damage Bonus: " + playerStat.damageBonus[playerStat.damageBonusLevel].ToString()+"%";
     }
 
 }

@@ -37,13 +37,14 @@ public class RoundManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) && _menuAnimator.GetBool("Escape_used") == false)
+        if(Input.GetKeyDown(KeyCode.Escape) && _menuAnimator.GetBool("Escape_used") == false && GameManager.instance.state == GameState.Gameplay)
         {
             _menuAnimator.SetBool("Escape_used", true);
             _menuAnimator.SetTrigger("Initiate");
             GameManager.instance.PauseGame();
+            hud.UpdateRoundMenu();
         }
-        else if(Input.GetKeyDown(KeyCode.Escape) && _menuAnimator.GetBool("Escape_used") == true)
+        else if(Input.GetKeyDown(KeyCode.Escape) && _menuAnimator.GetBool("Escape_used") == true && GameManager.instance.state == GameState.Paused)
         {
             _menuAnimator.SetTrigger("Back");
             _menuAnimator.SetBool("Escape_used", false);

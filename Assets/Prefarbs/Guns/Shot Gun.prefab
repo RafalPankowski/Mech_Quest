@@ -100,7 +100,9 @@ MonoBehaviour:
   fireRate:
   - 2
   Heat:
-  - 7
+  - 10
   weaponLevel: 0
+  damagePoint:
+  - 3
   ballPrefarb: {fileID: 3831104650420101756, guid: 40adc2763995b1f479001877bc579246, type: 3}
   bulletAmount: 03000000

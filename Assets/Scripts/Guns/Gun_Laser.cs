@@ -10,12 +10,15 @@ public class Gun_Laser : Gun
 
     private bool weaponIsOn;
 
+    private float timer;
+
     private void Awake()
     {
         
         laserList = new List<Laser>();
         Laser newline = Instantiate(laserPrefarb);
-        newline.weaponLevel = weaponLevel;
+        //newline.weaponLevel = weaponLevel;
+        newline.laserGun = this;
         laserList.Add(newline);
         newline.firePoint = this.transform;
         weaponIsOn = false;
@@ -26,12 +29,13 @@ public class Gun_Laser : Gun
     protected override void Update()
     {
         Aim(Input.mousePosition);
-        if(Input.GetMouseButton(0) && RoundManager.instance.alive == true && RoundManager.instance.player.curHeat + this.Heat[weaponLevel] < RoundManager.instance.player.maxHeat)
+        if(Input.GetMouseButton(0) && RoundManager.instance.alive == true && RoundManager.instance.player.curHeat + this.Heat[weaponLevel] < RoundManager.instance.player.maxHeat && GameManager.instance.state == GameState.Gameplay)
         {
             weaponIsOn = true;
-            if (Time.time - this.lastShoot > this.fireRate[weaponLevel])
+            timer += Time.deltaTime;
+            if (timer >= this.fireRate[weaponLevel] - (this.fireRate[weaponLevel] * (RoundManager.instance.player.FireRateBonus[RoundManager.instance.player.FireRateLevel])/100) || Input.GetMouseButtonUp(0))
             {
-                this.lastShoot = Time.time;
+                timer = 0;
                 Shoot();
             }
         }

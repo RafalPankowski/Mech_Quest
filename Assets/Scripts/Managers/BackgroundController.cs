@@ -15,6 +15,6 @@ public class BackgroundController : MonoBehaviour
     void Update()
     {
         transform.position = trPlayer.position;
-        renderTerrain.material.mainTextureOffset = new Vector2(trPlayer.position.x,trPlayer.position.y) * (RoundManager.instance.player.thrustSpeed/100);
+        renderTerrain.material.mainTextureOffset = new Vector2(trPlayer.position.x,trPlayer.position.y);
     }
 }
