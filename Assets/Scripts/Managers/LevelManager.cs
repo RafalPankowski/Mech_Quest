@@ -15,6 +15,9 @@ public class LevelManager : MonoBehaviour
     public int lvl;
     public List<int> xpTable;
 
+    private string[] upgradeCategory = { "Gun", "Stat" };
+    private string[] statName = { "FireRate", "CoolingRate", "MaxHeat", "DamageBonus" };
+
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -54,24 +57,39 @@ public class LevelManager : MonoBehaviour
     public void OnLevelUp()
     {
         Debug.Log("Level Up!");
-        RoundManager.instance.player.OnLevelUp();
-        GameManager.instance.PauseGame();
-        lvl++;
         Upgrade();
+        RoundManager.instance.player.OnLevelUp();
+        //GameManager.instance.PauseGame();
+        lvl++;
     }
     public void Upgrade()
     {
+        GameManager.instance.PauseGame();
         List<int> g_usedValues = new List<int>();
-        List<int> s_usedValues = new List<int>();
-        string[] upgradeCategory = {"Gun","Stat"};
-        _animator.SetTrigger("LevelUP");
-        for (int i = 0; i <= Random.Range(2, 3); i++)
+        for (int z=0;z<Guns.Length;z++)
         {
+            Debug.Log("z equal:" + z);
+            g_usedValues.Add(z);
+        }
+
+        List<int> s_usedValues = new List<int>();
+        for(int zz=0;zz<statName.Length;zz++)
+        {
+            Debug.Log("zz equal:" + zz);
+            s_usedValues.Add(zz);
+        }
+
+        _animator.SetTrigger("LevelUP");
+        for (int i = 0; i <= 2; i++)
+        {
+            //int gIndex = Random.Range(0,Guns.Length);
+            //int sIndex = Random.Range(0, statName.Length);
             int index = Random.Range(0,upgradeCategory.Length);
             string choosed = upgradeCategory[index];
             switch (choosed)
             {
                 case "Gun":
+                    Debug.Log("Gun choosed");
                     bool gunSlotAvailable = true;
                     for (int ii = 0; ii < RoundManager.instance.player.Gun_Slots.Length; ii++)
                     {
@@ -83,7 +101,7 @@ public class LevelManager : MonoBehaviour
                     }
                     if (Guns.Length != 0 && gunSlotAvailable == false)
                     {
-                        int gIndex = GameManager.instance.UniqueRandomInt(0, Guns.Length,g_usedValues);
+                        int gIndex = GameManager.instance.GenerateRandomNumber(g_usedValues)[0]; //GameManager.instance.UniqueRandomInt(0, Guns.Length,g_usedValues);
                         OptionGun(Guns[gIndex], new Vector3(0, i * -110.0f));
                     }
                     else
@@ -92,10 +110,9 @@ public class LevelManager : MonoBehaviour
                     }
                     break;
                 case "Stat":
-                    string[] statName = {"FireRate","CoolRate","MaxHeat" };
-                    int sIndex = GameManager.instance.UniqueRandomInt(0, statName.Length, s_usedValues);
+                    Debug.Log("Stat choosed");
+                    int sIndex = GameManager.instance.GenerateRandomNumber(s_usedValues)[0]; //GameManager.instance.UniqueRandomInt(0, statName.Length, s_usedValues);
                     OptionStat(statName[sIndex], new Vector3(0, i * -110.0f));
-                    Debug.Log("wybrano statystyke");
                     break;
             }
         }
@@ -124,11 +141,14 @@ public class LevelManager : MonoBehaviour
             case "FireRate":
                 playerStat.FireRateLevel++;
                 break;
-            case "CoolRate":
-                playerStat.coolLevel++;
+            case "CoolingRate":
+                playerStat.coolingLevel++;
                 break;
             case "MaxHeat":
                 playerStat.maxHeat += (int)playerStat.maxHeat / 10;
+                break;
+            case "DamageBonus":
+                playerStat.damageBonusLevel++;
                 break;
         }
         _animator.SetTrigger("ChosedUpgrade");

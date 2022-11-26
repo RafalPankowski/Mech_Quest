@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     public int mana;
 
+    public GameState state = GameState.Gameplay;
+
     private void Awake()
     {
         if (GameManager.instance != null)
@@ -25,22 +27,33 @@ public class GameManager : MonoBehaviour
     }
     public void PauseGame()
     {
-        Time.timeScale = (float)GameState.Paused;
+        if (GameManager.instance.state == GameState.Gameplay)
+        {
+            Time.timeScale = (float)GameState.Paused;
+            GameManager.instance.state = GameState.Paused;
+        }
+        else
+            return;
     }
 
     public void ResumeGame()
     {
-        Time.timeScale = (float)GameState.Gameplay;
-    }
-    public int UniqueRandomInt(int min, int max, List<int> usedValues)
-    {
-        int val = Random.Range(min, max);
-        while (usedValues.Contains(val))
+        if (GameManager.instance.state == GameState.Paused)
         {
-            val = Random.Range(min, max);
+            GameManager.instance.state = GameState.Gameplay;
+            Time.timeScale = (float)GameState.Gameplay;
         }
-        usedValues.Add(val);
-        return val;
+        else
+            return;
+    }
+
+    public List<int> GenerateRandomNumber(List<int> possibleNumbers)
+    {
+        List<int> chosenNumber = new List<int>();
+        int position = Random.Range(0, possibleNumbers.Count);
+        chosenNumber.Add(possibleNumbers[position]);
+        possibleNumbers.RemoveAt(position);
+        return chosenNumber;
     }
 
 }

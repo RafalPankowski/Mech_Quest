@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Fighter : MonoBehaviour
 {
-    public int hitpoint = 10;
-    public int maxHitpoint = 10;
+    public float hitpoint = 10;
+    public float maxHitpoint = 10;
 
     protected virtual void ReciveDamage(Damage dmg)
     {
@@ -22,5 +22,5 @@ public class Fighter : MonoBehaviour
 }
 public struct Damage
 {
-    public int damageAmount;
+    public float damageAmount;
 }

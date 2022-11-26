@@ -16,7 +16,7 @@ public class Gun_Shotgun : Gun
         for (int i = 0; i < bulletAmount[weaponLevel]; i++)
         {
             Ball ball = Instantiate(ballPrefarb, this.transform.position, transform.rotation);
-            ball.weaponLevel = weaponLevel;
+            ball.damage = (int)damagePoint[weaponLevel];
             ball.transform.Rotate(new Vector3(0, 0, -x*(2+i-i*y)));
             ball.Project(ball.transform.up);
         }

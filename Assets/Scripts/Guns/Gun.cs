@@ -8,20 +8,21 @@ public class Gun : MonoBehaviour
     public float[] Heat =new float[] { 4.0f };
     protected float lastShoot;
     public int weaponLevel = 0;
+    public float[] damagePoint = new float[] { 1, 2, 3, 4, 5, 6, 7 };
 
     protected virtual void Update()
     {
         Aim(Input.mousePosition);
 
-        if (Input.GetMouseButton(0) && RoundManager.instance.alive == true)
+        if (Input.GetMouseButton(0) && RoundManager.instance.alive == true && GameManager.instance.state == GameState.Gameplay)
         {
             if (RoundManager.instance.player.curHeat > RoundManager.instance.player.maxHeat - Heat[weaponLevel])
             {
                 return;
             }
             else
-            { 
-                if (Time.time - lastShoot > (fireRate[weaponLevel] / RoundManager.instance.player.FireRate[RoundManager.instance.player.FireRateLevel]))
+            {
+                if (Time.time - lastShoot > (fireRate[weaponLevel] - (fireRate[weaponLevel] * (RoundManager.instance.player.FireRateBonus[RoundManager.instance.player.FireRateLevel] / 100))))
                 {
                     lastShoot = Time.time;
                     Shoot();

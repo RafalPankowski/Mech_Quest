@@ -100,6 +100,8 @@ MonoBehaviour:
   fireRate:
   - 1
   Heat:
-  - 4
+  - 7
   weaponLevel: 0
+  damagePoint:
+  - 5
   bulletPrefarb: {fileID: 4047487844418253820, guid: 1bac215a9bc78f74ba199489c2dc7b41, type: 3}

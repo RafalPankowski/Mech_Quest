@@ -16,11 +16,16 @@ public class Player : Fighter
 
     public float curHeat = 0;
     public float maxHeat = 100;
-    public int coolLevel;
-    public float[] coolRate = {3,6,10,14,16,18,20,24,26,30};
+
+    public int coolingLevel;
+    public float coolingRate;
+    public int[] coolingBonus = {10,20,30,40,50,60,70,80,90,100};
 
     public int FireRateLevel;
-    public float[] FireRate = { 1,1.5f,2f,2.5f,3f,3.5f,4f,4.5f,5,6};
+    public int[] FireRateBonus = {10,20,30,40,50,60,70,80,90,100};
+
+    public int damageBonusLevel;
+    public int[] damageBonus = {0,10,20,30,40,50,60,70,80,90,100};
 
     private void Awake()
     {
@@ -102,7 +107,7 @@ public class Player : Fighter
 
     public void OnLevelUp()
     { 
-        this.maxHitpoint = this.maxHitpoint + 2;
+        this.maxHitpoint++;
         this.hitpoint = this.maxHitpoint;
     }
     public void SetLevel(int level)
@@ -120,7 +125,7 @@ public class Player : Fighter
     {
         if (this.curHeat > 0)
         {
-            this.curHeat -= time * coolRate[coolLevel];
+            this.curHeat -= time * (coolingRate + (coolingRate * coolingBonus[coolingLevel])/100);
         }
         else
         {
